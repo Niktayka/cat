@@ -1,0 +1,219 @@
+@font-face {
+  font-family: 'ExoThin';
+  src: url("../fonts/Exo2.0-Thin.otf"); }
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+  padding-top: 38px;
+  background: black no-repeat center/cover;
+  background-image: url("../img/bg-shadow.png"), url("../img/bg.png"); }
+
+.heading {
+  width: 100%;
+  margin: 0 0 23px;
+  color: white;
+  font-size: 36px;
+  font-family: "ExoThin", sans-serif;
+  font-weight: lighter;
+  line-height: 1.2;
+  text-align: center; }
+
+.content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-line-pack: center;
+  align-content: center; }
+
+.kote-food {
+  width: 320px;
+  margin: 0 80px 52px 0; }
+  .kote-food:last-child {
+    margin-right: 0; }
+  .kote-food__pack, .kote-food__pack_selected, .kote-food__pack_disabled {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 480px;
+    padding: 22px 48px 270px;
+    background: transparent no-repeat center/cover;
+    -webkit-transition: background-image .35s ease 0s;
+    transition: background-image .35s ease 0s; }
+  .kote-food__pack, .kote-food__pack_selected {
+    cursor: pointer; }
+  .kote-food__pack {
+    background-image: url("../img/card-bg_def.png"); }
+  .kote-food__head {
+    margin-bottom: 6px;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 16px;
+    color: #666666; }
+  .kote-food__name {
+    margin-left: -2px;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 48px;
+    font-weight: bold;
+    color: black; }
+  .kote-food__filler {
+    font-family: "Trebuchet MS", sans-serif;
+    margin-bottom: 14px;
+    font-size: 24px;
+    font-weight: bold;
+    color: black; }
+  .kote-food__amount, .kote-food__promo-rat, .kote-food__customer-mood {
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 14px;
+    color: #666666; }
+  .kote-food__weight {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 81px;
+    height: 81px;
+    font-family: "Trebuchet MS", sans-serif;
+    line-height: .93;
+    text-align: center;
+    color: white;
+    background-color: #1698d9;
+    border-radius: 50%; }
+    .kote-food__weight-num {
+      margin-top: 13px;
+      font-size: 42px; }
+    .kote-food__weight-unit {
+      font-size: 21px; }
+  .kote-food__msg {
+    margin: 14px 0;
+    font-size: 13px;
+    font-family: "Trebuchet MS";
+    color: white;
+    line-height: 1.231;
+    text-align: center; }
+    .kote-food__msg-btn {
+      position: relative;
+      color: #1698d9;
+      cursor: pointer; }
+      .kote-food__msg-btn::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 5.5px;
+        width: 28px;
+        height: 1px;
+        background: transparent url("../img/underline.png") no-repeat center/contain; }
+
+.kote-food__pack_selected {
+  background-image: url("../img/card-bg_sel.png"); }
+
+.kote-food__pack_selected > .kote-food__weight {
+  background-color: #d91667; }
+
+.kote-food__pack_disabled {
+  background-image: url("../img/card-bg_dis.png"); }
+
+.kote-food__pack_disabled > .kote-food__head,
+.kote-food__pack_disabled > .kote-food__name,
+.kote-food__pack_disabled > .kote-food__filler,
+.kote-food__pack_disabled > .kote-food__amount,
+.kote-food__pack_disabled > .kote-food__promo-rat,
+.kote-food__pack_disabled > .kote-food__customer-mood {
+  color: rgba(179, 179, 179, 0.502); }
+
+.kote-food__pack_disabled > .kote-food__weight {
+  background-color: #b3b3b3; }
+
+.kote-food__pack_disabled + .kote-food__msg {
+  color: #ffff66; }
+
+.hover > .kote-food__pack_selected:hover {
+  background-image: url("../img/card-bg_sel-hov.png"); }
+  .hover > .kote-food__pack_selected:hover > .kote-food__head {
+    color: #d91667; }
+
+.hover > .kote-food__pack:hover {
+  background-image: url("../img/card-bg_def-hov.png"); }
+
+@media (max-height: 680px) {
+  .container {
+    height: auto; } }
+
+@media (max-width: 1180px) {
+  .container {
+    height: auto; }
+  .content {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -ms-flex-flow: row-reverse wrap-reverse;
+    flex-flow: row-reverse wrap-reverse; }
+  .kote-food:nth-child(1) {
+    -webkit-box-ordinal-group: 4;
+    -ms-flex-order: 3;
+    order: 3; }
+  .kote-food:nth-child(2) {
+    -webkit-box-ordinal-group: 3;
+    -ms-flex-order: 2;
+    order: 2; }
+  .kote-food:nth-child(3) {
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1; }
+  .kote-food:first-child {
+    margin-left: 80px; } }
+
+@media (max-width: 768px) {
+  .kote-food {
+    margin: 0 5% 52px; }
+    .kote-food:first-child {
+      margin: 0 5% 52px; }
+    .kote-food:last-child {
+      margin: 0 5% 52px; } }

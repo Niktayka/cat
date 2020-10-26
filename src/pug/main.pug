@@ -1,0 +1,48 @@
+- 
+    let koteCards = [
+        {
+            status: "default",
+            filler: "с фуа-гра",
+            desc: "Печень утки разварная с артишоками.",
+            amount: 10,
+            promoRats: 1,
+            mood: false,
+            weight: "0,5"
+        },
+        {
+            status: "selected",
+            filler: "с рыбой",
+            desc: "Головы щучьи с чесноком да свежайшая сёмгушка.",
+            amount: 40,
+            promoRats: 2,
+            mood: false,
+            weight: 2
+        },
+        {
+            status: "disabled",
+            filler: "с курой",
+            desc: "Филе из цыплят с трюфелями в бульоне.",
+            amount: 100,
+            promoRats: 5,
+            mood: true,
+            weight: 5
+        }
+    ];
+
+include kote-food.pug
+
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title FunBox-test-task
+        link(rel="stylesheet", href="css/styles.min.css")
+        script(src="./js/script.min.js")
+    body
+        article.container
+            h1.heading Ты сегодня покормил кота?
+            .content
+                each val, idx in koteCards
+                    +kote(val.status, val.filler, val.desc, val.amount, val.promoRats, val.mood, val.weight, idx)

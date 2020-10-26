@@ -1,0 +1,223 @@
+$txt-colors: (
+    heading: rgb(255, 255, 255),
+    food-name: rgb(0, 0, 0),
+    card-main: rgb(102, 102, 102),
+    weight: rgb(255, 255, 255),
+    msg: rgb(255, 255, 255),
+    link: rgb(22, 152, 217),
+    selected: rgb(217, 22, 103),
+    disabled: rgba(179, 179, 179, 0.502),
+    disabled-msg: rgb(255, 255, 102)
+);
+$bg-colors: (
+    container: rgb(0, 0, 0),
+    default: rgb(22, 152, 217),
+    selected: rgb(217, 22, 103),
+    disabled: rgb(179, 179, 179)
+);
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    align-content: center;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+    padding-top: 38px;
+    background: map-get($bg-colors, container) no-repeat center/cover;
+    background-image: url('../img/bg-shadow.png'), url('../img/bg.png');
+}
+
+.heading {
+    width: 100%;
+    margin: 0 0 23px;
+    color: map-get($txt-colors, heading);
+    font-size: 36px;
+    font-family: "ExoThin", sans-serif;
+    font-weight: lighter;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+// Общие стили для упаковок с лакомствами
+
+.kote-food {
+    width: 320px;
+    margin: 0 80px 52px 0;
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    &__pack, &__pack_selected, &__pack_disabled {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        box-sizing: border-box;
+        width: 100%;
+        height: 480px;
+        padding: 22px 48px 270px;
+        background: transparent no-repeat center/cover;
+        transition: background-image .35s ease 0s;
+    }
+
+    &__pack, &__pack_selected {
+        cursor: pointer;
+    }
+
+    &__pack {
+        background-image: url('../img/card-bg_def.png');
+    }
+
+    &__head {
+        margin-bottom: 6px;
+        font-family: "Trebuchet MS", sans-serif;
+        font-size: 16px;
+        color: map-get($txt-colors, card-main);
+    }
+
+    &__name {
+        margin-left: -2px;
+        font-family: "Trebuchet MS", sans-serif;
+        font-size: 48px;
+        font-weight: bold;
+        color: map-get($txt-colors, food-name);
+    }
+
+    &__filler {
+        font-family: "Trebuchet MS", sans-serif;
+        margin-bottom: 14px;
+        font-size: 24px;
+        font-weight: bold;
+        color: map-get($txt-colors, food-name);
+    }
+
+    &__amount,
+    &__promo-rat,
+    &__customer-mood {
+        font-family: "Trebuchet MS", sans-serif;
+        font-size: 14px;
+        color: map-get($txt-colors, card-main);
+    }
+
+    &__weight {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 81px;
+        height: 81px;
+        font-family: "Trebuchet MS", sans-serif;
+        line-height: .93;
+        text-align: center;
+        color: map-get($txt-colors, weight);
+        background-color: map-get($bg-colors, default);
+        border-radius: 50%;
+
+        &-num {
+            margin-top: 13px;
+            font-size: 42px;
+        }
+
+        &-unit {
+            font-size: 21px;
+        }
+    }
+
+    &__msg {
+        margin: 14px 0;
+        font-size: 13px;
+        font-family: "Trebuchet MS";
+        color: map-get($txt-colors, msg);
+        line-height: 1.231;
+        text-align: center;
+
+        &-btn {
+            position: relative;
+            color: map-get($txt-colors, link);
+            cursor: pointer;
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                right: 5.5px;
+                width: 28px;
+                height: 1px;
+                background: transparent url('../img/underline.png') no-repeat center/contain;
+            }
+        }
+    }
+
+}
+
+// Стили для selected
+
+.kote-food {
+
+    &__pack_selected {
+        background-image: url('../img/card-bg_sel.png');
+    }
+
+    &__pack_selected > &__weight {
+        background-color: map-get($bg-colors, selected);
+    }
+}
+
+// Стили для disabled
+
+.kote-food {
+
+    &__pack_disabled {
+        background-image: url('../img/card-bg_dis.png')
+    }
+
+    &__pack_disabled > &__head,
+    &__pack_disabled > &__name,
+    &__pack_disabled > &__filler,
+    &__pack_disabled > &__amount,
+    &__pack_disabled > &__promo-rat,
+    &__pack_disabled > &__customer-mood, {
+        color: map-get($txt-colors, disabled);
+    }
+
+    &__pack_disabled > &__weight {
+        background-color: map-get($bg-colors, disabled);
+    }
+
+    &__pack_disabled + &__msg {
+        color: map-get($txt-colors, disabled-msg);
+    }
+}
+
+// Стили для hover
+
+.hover {
+
+    & > .kote-food__pack_selected:hover {
+        background-image: url("../img/card-bg_sel-hov.png");
+
+        & > .kote-food__head {
+            color: map-get($txt-colors, selected);
+        }
+    }
+
+    & > .kote-food__pack:hover {
+        background-image: url("../img/card-bg_def-hov.png");
+    }
+}

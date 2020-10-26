@@ -1,0 +1,48 @@
+$packs-val: 3;
+
+@media (max-height: 680px) {
+    .container {
+        height: auto;
+    }
+}
+
+// Медиа-запрос для планшетов
+
+@media (max-width: 1180px) {
+
+    .container {
+        height: auto;
+    }
+
+    .content {
+        flex-flow: row-reverse wrap-reverse;
+    }
+
+    @for $i from 1 through $packs-val {
+        .kote-food:nth-child(#{$i}) {
+            order: $packs-val -$i + 1;
+        }
+    }
+
+    @if ($packs-val % 2 != 0) {
+        .kote-food:first-child {
+            margin-left: 80px;
+        }
+    }
+}
+
+// Медиа-запрос для телефонов
+
+@media (max-width: 768px) {
+    .kote-food {
+        margin: 0 5% 52px;
+
+        &:first-child {
+            margin: 0 5% 52px;
+        }
+
+        &:last-child {
+            margin: 0 5% 52px;
+        }
+    }
+}
